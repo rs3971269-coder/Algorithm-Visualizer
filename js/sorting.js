@@ -36,3 +36,30 @@ async function selectionSort(arr, bars) {
 
   bars[n - 1].classList.add('sorted');
 }
+
+
+//bubble sort 
+
+async function bubbleSort(arr, bars) {
+  const n = arr.length;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      bars[j].classList.add('compare');
+      bars[j + 1].classList.add('compare');
+      state.comparisons++;
+      updateCounters();
+      await step();
+
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, bars, j, j + 1);
+        state.swaps++;
+        updateCounters();
+        await step();
+      }
+      bars[j].classList.remove('compare');
+      bars[j + 1].classList.remove('compare');
+    }
+    bars[n - i - 1].classList.add('sorted');
+  }
+  bars[0].classList.add('sorted');
+}

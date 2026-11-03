@@ -1,7 +1,9 @@
 // Register algorithms here. The key must match the <option> value in index.html
 const algorithms = {
   selection: selectionSort,
+  bubble: bubbleSort,
 };
+
 
 const container = document.getElementById('bars');
 const sizeInput = document.getElementById('size');

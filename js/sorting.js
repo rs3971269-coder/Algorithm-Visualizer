@@ -63,3 +63,38 @@ async function bubbleSort(arr, bars) {
   }
   bars[0].classList.add('sorted');
 }
+
+
+//insertion sort
+
+async function insertionSort(arr, bars) {
+  const n = arr.length;
+
+  for (let i = 1; i < n; i++) {
+    let j = i;
+    bars[j].classList.add('current');   // the bar we are inserting
+
+    while (j > 0) {
+      bars[j - 1].classList.add('compare');
+      state.comparisons++;
+      updateCounters();
+      await step();
+      bars[j - 1].classList.remove('compare');
+
+      if (arr[j - 1] > arr[j]) {
+        swap(arr, bars, j - 1, j);      // move it one place left
+        state.swaps++;
+        updateCounters();
+        bars[j].classList.remove('current');
+        j--;
+        bars[j].classList.add('current');
+        await step();
+      } else {
+        break;                          // it is in the right place
+      }
+    }
+    bars[j].classList.remove('current');
+  }
+
+  bars.forEach((bar) => bar.classList.add('sorted'));
+}

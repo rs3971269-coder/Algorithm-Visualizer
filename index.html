@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algorithm Visualizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Algorithm Visualizer</h1>
+    <p>Watch how sorting algorithms work, one comparison at a time.</p>
+  </header>
+
+  <section class="controls">
+    <label>Algorithm
+      <select id="algorithm">
+        <option value="selection">Selection sort</option>
+        <option value="bubble">Bubble sort</option>
+        <option value="insertion">Insertion sort</option>
+        <option value="merge">Merge sort</option>
+      </select>
+    </label>
+    <label>Array size
+      <input type="range" id="size" min="10" max="80" value="30">
+    </label>
+    <label>Speed
+      <input type="range" id="speed" min="1" max="10" value="6">
+    </label>
+    <button id="generate">New array</button>
+    <button id="start" class="primary">Start</button>
+    <button id="stop" disabled>Stop</button>
+  </section>
+
+  <main id="bars" aria-label="Array bars"></main>
+
+  <section class="legend">
+    <span><i class="dot compare"></i>Comparing</span>
+    <span><i class="dot min"></i>Smallest so far</span>
+    <span><i class="dot sorted"></i>Sorted</span>
+  </section>
+
+  <section class="stats">
+    <div>Comparisons: <strong id="comparisons">0</strong></div>
+    <div>Swaps: <strong id="swaps">0</strong></div>
+  </section>
+
+  <script src="js/utils.js"></script>
+  <script src="js/sorting.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -4,8 +4,8 @@ const algorithms = {
   bubble: bubbleSort,
   insertion: insertionSort,
   merge: mergeSort,
+  quick: quickSort,
 };
-
 
 const container = document.getElementById('bars');
 const sizeInput = document.getElementById('size');

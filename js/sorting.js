@@ -153,3 +153,52 @@ async function merge(arr, bars, left, mid, right) {
     j++; k++;
   }
 }
+
+//Quick sort
+async function quickSort(arr, bars) {
+  await quickSortHelper(arr, bars, 0, arr.length - 1);
+  bars.forEach((bar) => bar.classList.add('sorted'));
+}
+
+// Place one pivot in its final spot, then sort the left and right sides
+async function quickSortHelper(arr, bars, low, high) {
+  if (low >= high) return;
+  const p = await partition(arr, bars, low, high);
+  await quickSortHelper(arr, bars, low, p - 1);
+  await quickSortHelper(arr, bars, p + 1, high);
+}
+
+async function partition(arr, bars, low, high) {
+  const pivot = arr[high];                 // last element is the pivot
+  bars[high].classList.add('current');     // pivot shown in blue
+  let i = low - 1;                         // end of the "smaller than pivot" zone
+
+  for (let j = low; j < high; j++) {
+    bars[j].classList.add('compare');
+    state.comparisons++;
+    updateCounters();
+    await step();
+
+    if (arr[j] < pivot) {
+      i++;
+      if (i !== j) {
+        swap(arr, bars, i, j);             // move smaller value into the left zone
+        state.swaps++;
+        updateCounters();
+        await step();
+      }
+    }
+    bars[j].classList.remove('compare');
+  }
+
+  // Put the pivot right after the smaller values
+  if (i + 1 !== high) {
+    swap(arr, bars, i + 1, high);
+    state.swaps++;
+    updateCounters();
+    await step();
+  }
+  bars[high].classList.remove('current');
+  bars[i + 1].classList.add('sorted');     // the pivot is now in its final place
+  return i + 1;
+}

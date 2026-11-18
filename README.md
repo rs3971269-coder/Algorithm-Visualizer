@@ -20,4 +20,4 @@ HTML, CSS, JavaScript
 | bubble sort | O(n)
 | Insertion sort | O(n) | O(n²) | O(n²) | O(1) |
 | Merge sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
-    
+| Quick sort | O(n log n) | O(n log n) | O(n²) | O(log n) |

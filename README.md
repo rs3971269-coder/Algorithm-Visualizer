@@ -17,4 +17,7 @@ HTML, CSS, JavaScript
 | Algorithm | Best | Average | Worst | Space |
 |-----------|------|---------|-------|-------|
 | Selection sort | O(n²) | O(n²) | O(n²) | O(1) |
+| bubble sort | O(n)
 | Insertion sort | O(n) | O(n²) | O(n²) | O(1) |
+| Merge sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
+    

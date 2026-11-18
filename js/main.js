@@ -2,7 +2,8 @@
 const algorithms = {
   selection: selectionSort,
   bubble: bubbleSort,
-  insertion: insertionSort
+  insertion: insertionSort,
+  merge: mergeSort,
 };
 
 

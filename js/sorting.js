@@ -98,3 +98,58 @@ async function insertionSort(arr, bars) {
 
   bars.forEach((bar) => bar.classList.add('sorted'));
 }
+
+// Writes one value into the array and its bar, with animation
+async function writeBar(arr, bars, index, value) {
+  bars[index].classList.add('compare');
+  await step();
+  arr[index] = value;
+  bars[index].style.height = value + '%';
+  state.swaps++;                 // for merge sort this counts writes
+  updateCounters();
+  bars[index].classList.remove('compare');
+}
+
+async function mergeSort(arr, bars) {
+  await mergeSortHelper(arr, bars, 0, arr.length - 1);
+  bars.forEach((bar) => bar.classList.add('sorted'));
+}
+
+// Split the range in half, sort each half, then merge them
+async function mergeSortHelper(arr, bars, left, right) {
+  if (left >= right) return;     // one element is already sorted
+  const mid = Math.floor((left + right) / 2);
+  await mergeSortHelper(arr, bars, left, mid);
+  await mergeSortHelper(arr, bars, mid + 1, right);
+  await merge(arr, bars, left, mid, right);
+}
+
+async function merge(arr, bars, left, mid, right) {
+  const leftPart = arr.slice(left, mid + 1);
+  const rightPart = arr.slice(mid + 1, right + 1);
+  let i = 0, j = 0, k = left;
+
+  // Take the smaller front value from either half
+  while (i < leftPart.length && j < rightPart.length) {
+    state.comparisons++;
+    updateCounters();
+    if (leftPart[i] <= rightPart[j]) {
+      await writeBar(arr, bars, k, leftPart[i]);
+      i++;
+    } else {
+      await writeBar(arr, bars, k, rightPart[j]);
+      j++;
+    }
+    k++;
+  }
+
+  // Copy whatever is left in either half
+  while (i < leftPart.length) {
+    await writeBar(arr, bars, k, leftPart[i]);
+    i++; k++;
+  }
+  while (j < rightPart.length) {
+    await writeBar(arr, bars, k, rightPart[j]);
+    j++; k++;
+  }
+}

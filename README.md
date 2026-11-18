@@ -22,3 +22,5 @@ HTML, CSS, JavaScript
 | Merge sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
 | Binary search | O(1) | O(log n) | O(log n) | O(1) |
+
+![demo image of binary search](image.png)

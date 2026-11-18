@@ -5,6 +5,7 @@ const algorithms = {
   insertion: insertionSort,
   merge: mergeSort,
   quick: quickSort,
+  binary: binarySearch
 };
 
 const container = document.getElementById('bars');
@@ -37,6 +38,7 @@ function resetCounters() {
   state.comparisons = 0;
   state.swaps = 0;
   updateCounters();
+  document.getElementById('message').textContent = '';
 }
 
 function setRunning(running) {

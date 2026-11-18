@@ -202,3 +202,5 @@ async function partition(arr, bars, low, high) {
   bars[i + 1].classList.add('sorted');     // the pivot is now in its final place
   return i + 1;
 }
+
+

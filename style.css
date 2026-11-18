@@ -18,6 +18,16 @@
     --bar: #5d6773;
   }
 }
+input[type="number"] {
+  font: inherit;
+  padding: 8px 10px;
+  width: 110px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -59,5 +69,8 @@ button:disabled, select:disabled, input:disabled { opacity: .45; cursor: not-all
 .dot.min { background: var(--min); }
 .dot.sorted { background: var(--sorted); }
 .stats strong { color: var(--text); }
+.bar.out { opacity: 0.2; }
+#message { min-height: 1.5em; margin: 12px 0 0; color: var(--muted); }
 
 @media (prefers-reduced-motion: reduce) { .bar { transition: none; } }
+

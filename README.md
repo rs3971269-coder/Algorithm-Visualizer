@@ -21,3 +21,4 @@ HTML, CSS, JavaScript
 | Insertion sort | O(n) | O(n²) | O(n²) | O(1) |
 | Merge sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick sort | O(n log n) | O(n log n) | O(n²) | O(log n) |
+| Binary search | O(1) | O(log n) | O(log n) | O(1) |

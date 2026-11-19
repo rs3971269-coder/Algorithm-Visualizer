@@ -70,3 +70,6 @@ generateBtn.addEventListener('click', generateArray);
 sizeInput.addEventListener('input', generateArray);
 
 generateArray();
+
+algoSelect.addEventListener('change', () => showInfo(algoSelect.value));
+showInfo(algoSelect.value);

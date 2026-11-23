@@ -2,7 +2,7 @@
 
 An interactive web app that animates sorting and searching algorithms step by step, so you can see how each one works.
 
-**Live demo:** https://rs3971269-coder.github.io/<repo-name>/
+**Live demo:** https://visual-sort-lab.netlify.app
 
 ## Demo
 

@@ -8,14 +8,7 @@ An interactive web app that animates sorting and searching algorithms step by st
 
 ![Algorithm Visualizer screenshot](image.png)
 
-### Video demo
-
-<video controls muted playsinline width="100%">
-  <source src="demo.gif.mp4" type="video/mp4">
-  Your browser does not support the video tag. <a href="demo.gif.mp4">Open/download the demo video</a>.
-</video>
-
-[Open the demo video directly](demo.gif.mp4)
+[Open the demo video](demo.gif.mp4)
 
 ## Features
 - 5 sorting algorithms: selection, bubble, insertion, merge and quick sort
@@ -42,14 +35,16 @@ Every algorithm is written as an `async` function that calls `await step()` afte
 | Binary search | O(1) | O(log n) | O(log n) | O(1) |
 
 ## Run locally
-1. Clone the repo
-2. Open `index.html` in a browser
+```
+git clone https://github.com/rs3971269-coder/Algorithm-Visualizer.git
+```
+Then open `index.html` in a browser. No install needed.
 
 ## What I learned
 - Writing recursive algorithms (merge sort, quick sort) and animating them
 - Using async/await to control timing in the browser
 - Comparing time and space complexity in practice
-- Structuring a JavaScript project across several files and deploying it with GitHub Pages
+- Structuring a JavaScript project across several files and deploying it on Netlify
 
 ## Future improvements
 - Shortest path finder (BFS and Dijkstra) on a grid
